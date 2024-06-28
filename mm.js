@@ -1,17 +1,17 @@
 const ethers = require('ethers');
 require("dotenv").config();
 
-const wethAddress = '0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6'; // goerli weth
+const wethAddress = '0x4200000000000000000000000000000000000006'; // Base weth
 //const wethAddress = '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'; // mainnet weth
 const routerAddress = '0xE592427A0AEce92De3Edee1F18E0157C05861564'; // Uniswap Router
 const quoterAddress = '0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6'; // Uniswap Quoter
-const tokenAddress = '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984'; // goerli uni
+const tokenAddress = '0xde7a416ac821c77478340eebaa21b68297025ef3'; // BENI uni
 const fee = 3000; // Uniswap pool fee bps 500, 3000, 10000
-const buyAmount = ethers.parseUnits('0.001', 'ether');
-const targetPrice = BigInt(35); // target exchange rate
+const buyAmount = ethers.parseUnits('0.00001', 'ether');
+const targetPrice = BigInt(2092120); // target exchange rate
 const targetAmountOut = buyAmount * targetPrice;
 const sellAmount = buyAmount / targetPrice;
-const tradeFrequency = 3600 * 1000; // ms (once per hour)
+const tradeFrequency = 5000; // ms (per 5 seconds)
 
 // `https://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_API_KEY}`
 const provider = new ethers.JsonRpcProvider(`https://eth-goerli.alchemyapi.io/v2/${process.env.ALCHEMY_API_KEY}`);
